@@ -1,0 +1,106 @@
+## ==============================================
+## files and directories that are irrelevant
+## ==============================================
+
+## see also: .git/info/exclude
+## nano .git/info/exclude
+
+## irrelevant files in main directory:
+#.gitignore
+#calls-meetings*.*
+#ideas-for-analysis*.*
+*_v0*.*
+
+## irrelevant files and subdirectories:
+data/*
+packrat/lib*/
+packrat/src*/
+demo_app/packrat/lib*/
+demo_app/packrat/src*/
+
+## exclude data file (excel):
+use-case-bewertungskriterien---egger-2018-09-13.xlsx
+
+## don't include old stuff:
+r-scripts/old/*
+
+## don't include tensorboards and cloudlm stuff:
+r-scripts/tensorboard/*
+r-scripts/runs/*
+r-scripts/cloudml*
+
+## don't include www/tmp of demo_app:
+demo_app/www/tmp/*
+
+## ==============================================
+## Created by https://www.gitignore.io/api/macos
+## ==============================================
+
+# Created by https://www.gitignore.io/api/macos,r
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+# Thumbnails
+._*
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+### R ###
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+/*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# End of https://www.gitignore.io/api/macos,r
+.Rproj.user
+packrat/lib*/
+
+.httr-oauth
+
