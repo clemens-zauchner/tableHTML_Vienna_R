@@ -59,7 +59,7 @@ http://www.cssfontstack.com/Helvetica
 .gdbar img {
   position: absolute; 
   top: 0px;
-  left: 50px;
+  left: 110px;
   width: 500px !important;
   height: 220px !important;
 }

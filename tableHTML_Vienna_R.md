@@ -19,7 +19,7 @@ http://www.cssfontstack.com/Helvetica
 .gdbar img {
   position: absolute; 
   top: 0px;
-  left: 50px;
+  left: 110px;
   width: 500px !important;
   height: 220px !important;
 }
@@ -145,7 +145,7 @@ mtcars %>%
 ```
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_2656 border=1>
+<table style="border-collapse:collapse;" class=table_6840 border=1>
 <col width="140">
 <col width="50">
 <col width="50">
@@ -273,7 +273,7 @@ mtcars %>%
 ## Example 
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4383 border=1>
+<table style="border-collapse:collapse;" class=table_3325 border=1>
 <caption>This is a caption</caption>
 <caption id="footer" align="bottom">This is a footer</caption>
 <col width="120">
@@ -529,7 +529,7 @@ mtcars %>%
 
 ```
 ## Classes 'tableHTML', 'html', 'character'  atomic [1:1] 
-## <table style="border-collapse:collapse;" class=table_7152 border=1>
+## <table style="border-collapse:collapse;" class=table_1274 border=1>
 ## <col width="140">
 ## <col width="50">
 ## <col widt| __truncated__
@@ -589,7 +589,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3969 border=1>
+<table style="border-collapse:collapse;" class=table_3223 border=1>
 <caption style="text-align:center;font-size:20px;color:black;">Table of Cars</caption>
 <caption id="footer" align="bottom" style="text-align:left;color:black;">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -726,7 +726,7 @@ mtcars %>%
 ## Conditional formatting
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_2157 border=1>
+<table style="border-collapse:collapse;" class=table_3785 border=1>
 <col width="140">
 <col width="45">
 <col width="45">
@@ -1273,12 +1273,13 @@ knitr::include_graphics('img/conf_matrix.png')
 <h3>Questions?</h3>
 
 <br>
+<br>
 If you need help using the package, there is a `tableHTML` tag on stackoverflow:
 
 https://stackoverflow.com/questions/tagged/tablehtml
 
 <div class = "footer">
-if you find any bugs please report them on the issues page on github.
+If you find any bugs please report them on the issues page on github.
 
 https://github.com/LyzandeR/tableHTML/issues
 </div>
