@@ -1,46 +1,6 @@
----
-title: "Introduction to tableHTML"
-subtitle: "Vienna <- R"
-author: "Theo Boutaris, Clemens Zauchner"
-date: "09 October 2018"
-output: 
-  ioslides_presentation:
-    df_print: null
-    theme: null
-    css: style.css
-    logo: img/tableHTML.png
-    widescreen: true
-    keep_md: true
-    #smaller: true  ## only works without "---" slide breaks (use ##)
-    slide_level: 2
-#search and replace:
-# !\[\]\((.*)\)
-# ```{r, eval = TRUE, echo = FALSE, out.width = "100%", fig.align = "left"}\nknitr::include_graphics("\1")\n```
-# OLD:  ```{r, eval = TRUE, echo = FALSE}\ngrid::grid.raster(png::readPNG("\1"))\n```
-# use {.smaller} after title for single slides
-
-    # 'f' enable fullscreen mode
-    # 'w' toggle widescreen mode
-    # 'o' enable overview mode
-    # 'h' enable code highlight mode
-    # 'p' show presenter notes
-#
-# two-column layout:
-#   ## title {.columns-2}
-#  or:
-#   <div class="columns-2">  </div>
-#  or:
-#   <div style="float: left; width: 50%;"> </div>  ## awesome! might need a <div> </div> before the columns... (only "left" also works)
-#   <div></div> <div style="float: left; width: 50%;"> </div> <div style="float: left; width: 50%;"> </div> 
-# color:
-#   <div class="red2"></div>
-#   <font color="red">
-#
-# slide layout: after title, place:
-#   {.flexbox .vcenter}
-#   { .smaller}
-#   
----
+# Introduction to tableHTML
+Theo Boutaris, Clemens Zauchner  
+09 October 2018  
 [//]: # (
 http://www.w3schools.com/css/css_font.asp
 http://www.cssfontstack.com/Helvetica
@@ -185,7 +145,7 @@ mtcars %>%
 ```
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_8431 border=1>
+<table style="border-collapse:collapse;" class=table_2656 border=1>
 <col width="140">
 <col width="50">
 <col width="50">
@@ -313,7 +273,7 @@ mtcars %>%
 ## Example 
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3434 border=1>
+<table style="border-collapse:collapse;" class=table_4383 border=1>
 <caption>This is a caption</caption>
 <caption id="footer" align="bottom">This is a footer</caption>
 <col width="120">
@@ -568,15 +528,19 @@ mtcars %>%
 ```
 
 ```
-##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_2798 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
-##  - attr(*, "html")= logi TRUE
-##  - attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
-##  - attr(*, "nrows")= int 32
-##  - attr(*, "ncols")= int 11
-##  - attr(*, "col_classes")= chr [1:11] "numeric" "numeric" "numeric" "numeric" ...
-##  - attr(*, "rownames")= logi TRUE
-##  - attr(*, "row_groups")= logi FALSE
-##  - attr(*, "second_headers")= logi FALSE
+## Classes 'tableHTML', 'html', 'character'  atomic [1:1] 
+## <table style="border-collapse:collapse;" class=table_7152 border=1>
+## <col width="140">
+## <col width="50">
+## <col widt| __truncated__
+##   ..- attr(*, "html")= logi TRUE
+##   ..- attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
+##   ..- attr(*, "nrows")= int 32
+##   ..- attr(*, "ncols")= int 11
+##   ..- attr(*, "col_classes")= chr [1:11] "numeric" "numeric" "numeric" "numeric" ...
+##   ..- attr(*, "rownames")= logi TRUE
+##   ..- attr(*, "row_groups")= logi FALSE
+##   ..- attr(*, "second_headers")= logi FALSE
 ```
 
 ## The add_css_*() family of functions
@@ -625,7 +589,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1714 border=1>
+<table style="border-collapse:collapse;" class=table_3969 border=1>
 <caption style="text-align:center;font-size:20px;color:black;">Table of Cars</caption>
 <caption id="footer" align="bottom" style="text-align:left;color:black;">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -762,7 +726,7 @@ mtcars %>%
 ## Conditional formatting
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3416 border=1>
+<table style="border-collapse:collapse;" class=table_2157 border=1>
 <col width="140">
 <col width="45">
 <col width="45">
@@ -1307,6 +1271,11 @@ knitr::include_graphics('img/conf_matrix.png')
 ## Last Slide
 
 <h3>Questions?</h3>
+
+<br>
+If you need help using the package, there is a `tableHTML` tag on stackoverflow:
+
+https://stackoverflow.com/questions/tagged/tablehtml
 
 <div class = "footer">
 if you find any bugs please report them on the issues page on github.

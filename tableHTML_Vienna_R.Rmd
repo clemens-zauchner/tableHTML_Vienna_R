@@ -457,8 +457,14 @@ knitr::include_graphics('img/conf_matrix.png')
 
 <h3>Questions?</h3>
 
+<br>
+<br>
+If you need help using the package, there is a `tableHTML` tag on stackoverflow:
+
+https://stackoverflow.com/questions/tagged/tablehtml
+
 <div class = "footer">
-if you find any bugs please report them on the issues page on github.
+If you find any bugs please report them on the issues page on github.
 
 https://github.com/LyzandeR/tableHTML/issues
 </div>
