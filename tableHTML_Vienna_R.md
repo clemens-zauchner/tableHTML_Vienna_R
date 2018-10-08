@@ -1,6 +1,46 @@
-# Introduction to tableHTML
-Theo Boutaris, Clemens Zauchner  
-09 October 2018  
+---
+title: "Introduction to tableHTML"
+subtitle: "Vienna <- R"
+author: "Theo Boutaris, Clemens Zauchner"
+date: "09 October 2018"
+output: 
+  ioslides_presentation:
+    df_print: null
+    theme: null
+    css: style.css
+    logo: img/tableHTML.png
+    widescreen: true
+    keep_md: true
+    #smaller: true  ## only works without "---" slide breaks (use ##)
+    slide_level: 2
+#search and replace:
+# !\[\]\((.*)\)
+# ```{r, eval = TRUE, echo = FALSE, out.width = "100%", fig.align = "left"}\nknitr::include_graphics("\1")\n```
+# OLD:  ```{r, eval = TRUE, echo = FALSE}\ngrid::grid.raster(png::readPNG("\1"))\n```
+# use {.smaller} after title for single slides
+
+    # 'f' enable fullscreen mode
+    # 'w' toggle widescreen mode
+    # 'o' enable overview mode
+    # 'h' enable code highlight mode
+    # 'p' show presenter notes
+#
+# two-column layout:
+#   ## title {.columns-2}
+#  or:
+#   <div class="columns-2">  </div>
+#  or:
+#   <div style="float: left; width: 50%;"> </div>  ## awesome! might need a <div> </div> before the columns... (only "left" also works)
+#   <div></div> <div style="float: left; width: 50%;"> </div> <div style="float: left; width: 50%;"> </div> 
+# color:
+#   <div class="red2"></div>
+#   <font color="red">
+#
+# slide layout: after title, place:
+#   {.flexbox .vcenter}
+#   { .smaller}
+#   
+---
 [//]: # (
 http://www.w3schools.com/css/css_font.asp
 http://www.cssfontstack.com/Helvetica
@@ -145,7 +185,7 @@ mtcars %>%
 ```
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_6840 border=1>
+<table style="border-collapse:collapse;" class=table_3439 border=1>
 <col width="140">
 <col width="50">
 <col width="50">
@@ -273,7 +313,7 @@ mtcars %>%
 ## Example 
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3325 border=1>
+<table style="border-collapse:collapse;" class=table_8791 border=1>
 <caption>This is a caption</caption>
 <caption id="footer" align="bottom">This is a footer</caption>
 <col width="120">
@@ -528,35 +568,566 @@ mtcars %>%
 ```
 
 ```
-## Classes 'tableHTML', 'html', 'character'  atomic [1:1] 
-## <table style="border-collapse:collapse;" class=table_1274 border=1>
-## <col width="140">
-## <col width="50">
-## <col widt| __truncated__
-##   ..- attr(*, "html")= logi TRUE
-##   ..- attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
-##   ..- attr(*, "nrows")= int 32
-##   ..- attr(*, "ncols")= int 11
-##   ..- attr(*, "col_classes")= chr [1:11] "numeric" "numeric" "numeric" "numeric" ...
-##   ..- attr(*, "rownames")= logi TRUE
-##   ..- attr(*, "row_groups")= logi FALSE
-##   ..- attr(*, "second_headers")= logi FALSE
+##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_6845 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
+##  - attr(*, "html")= logi TRUE
+##  - attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
+##  - attr(*, "nrows")= int 32
+##  - attr(*, "ncols")= int 11
+##  - attr(*, "col_classes")= chr [1:11] "numeric" "numeric" "numeric" "numeric" ...
+##  - attr(*, "rownames")= logi TRUE
+##  - attr(*, "row_groups")= logi FALSE
+##  - attr(*, "second_headers")= logi FALSE
 ```
 
 ## The add_css_*() family of functions
 
 Currently the package offers the following add_css functions which add CSS to their respective part of the HTML table:
 
+<div> </div> 
+<div style="float: left; width: 50%;"> 
 - add_css_caption
 - add_css_column
 - add_css_conditional_column
 - add_css_footer
 - add_css_header
+</div> <div style="float: left; width: 50%;">
 - add_css_row
 - add_css_second_header
 - add_css_table
 - add_css_tbody
 - add_css_thead
+</div> 
+
+## Example of how some of the add_css_* <br> functions can be used
+
+
+```r
+mtcars[1:15, ] %>%
+  tableHTML(widths = c(140, rep(45, 11)),
+            second_headers = list(c(3, 4, 5), 
+                                  c('team1', 'team2', 'team3')),
+            caption = 'Table of Cars',
+            footer = 'Figure 1. Stats for famous cars') %>% 
+  add_css_second_header(css = list(c('height', 'background-color', 'font-size'), 
+                                   c('40px', ' #e6e6e6', '30px')),
+                        second_headers = 1:3)
+```
+
+## Example of how some of the add_css_* <br> functions can be used
+
+<!--html_preserve-->
+<table style="border-collapse:collapse;" class=table_8543 border=1>
+<caption>Table of Cars</caption>
+<caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
+<col width="140">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<thead>
+<tr>
+  <th colspan=3 id="tableHTML_second_header_1" style="height:40px;background-color: #e6e6e6;font-size:30px;">team1</th>
+  <th colspan=4 id="tableHTML_second_header_2" style="height:40px;background-color: #e6e6e6;font-size:30px;">team2</th>
+  <th colspan=5 id="tableHTML_second_header_3" style="height:40px;background-color: #e6e6e6;font-size:30px;">team3</th>
+</tr>
+<tr>
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">mpg</th>
+  <th id="tableHTML_header_3">cyl</th>
+  <th id="tableHTML_header_4">disp</th>
+  <th id="tableHTML_header_5">hp</th>
+  <th id="tableHTML_header_6">drat</th>
+  <th id="tableHTML_header_7">wt</th>
+  <th id="tableHTML_header_8">qsec</th>
+  <th id="tableHTML_header_9">vs</th>
+  <th id="tableHTML_header_10">am</th>
+  <th id="tableHTML_header_11">gear</th>
+  <th id="tableHTML_header_12">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td id="tableHTML_rownames">Mazda RX4</td>
+  <td id="tableHTML_column_1">21</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">160</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.9</td>
+  <td id="tableHTML_column_6">2.62</td>
+  <td id="tableHTML_column_7">16.46</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">4</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Mazda RX4 Wag</td>
+  <td id="tableHTML_column_1">21</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">160</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.9</td>
+  <td id="tableHTML_column_6">2.875</td>
+  <td id="tableHTML_column_7">17.02</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">4</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Datsun 710</td>
+  <td id="tableHTML_column_1">22.8</td>
+  <td id="tableHTML_column_2">4</td>
+  <td id="tableHTML_column_3">108</td>
+  <td id="tableHTML_column_4">93</td>
+  <td id="tableHTML_column_5">3.85</td>
+  <td id="tableHTML_column_6">2.32</td>
+  <td id="tableHTML_column_7">18.61</td>
+  <td id="tableHTML_column_8">1</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">1</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Hornet 4 Drive</td>
+  <td id="tableHTML_column_1">21.4</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">258</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.08</td>
+  <td id="tableHTML_column_6">3.215</td>
+  <td id="tableHTML_column_7">19.44</td>
+  <td id="tableHTML_column_8">1</td>
+  <td id="tableHTML_column_9">0</td>
+  <td id="tableHTML_column_10">3</td>
+  <td id="tableHTML_column_11">1</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Hornet Sportabout</td>
+  <td id="tableHTML_column_1">18.7</td>
+  <td id="tableHTML_column_2">8</td>
+  <td id="tableHTML_column_3">360</td>
+  <td id="tableHTML_column_4">175</td>
+  <td id="tableHTML_column_5">3.15</td>
+  <td id="tableHTML_column_6">3.44</td>
+  <td id="tableHTML_column_7">17.02</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">0</td>
+  <td id="tableHTML_column_10">3</td>
+  <td id="tableHTML_column_11">2</td>
+</tr>
+</tbody>
+</table><!--/html_preserve-->
+
+## Example of how some of the add_css_* <br> functions can be used
+
+
+```r
+mtcars[1:15, ] %>%
+  tableHTML(widths = c(140, rep(45, 11)),
+            second_headers = list(c(3, 4, 5), 
+                                  c('team1', 'team2', 'team3')),
+            caption = 'Table of Cars',
+            footer = 'Figure 1. Stats for famous cars') %>% 
+  add_css_second_header(css = list(c('height', 'background-color', 'font-size'), 
+                                   c('40px', ' #e6e6e6', '30px')),
+                        second_headers = 1:3) %>%
+  add_css_header(css = list(c('height', 'background-color'), 
+                            c('30px', ' #e6e6e6')),
+                 headers = 1:12)
+```
+
+## Example of how some of the add_css_* <br> functions can be used
+
+<!--html_preserve-->
+<table style="border-collapse:collapse;" class=table_6176 border=1>
+<caption>Table of Cars</caption>
+<caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
+<col width="140">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<thead>
+<tr>
+  <th colspan=3 id="tableHTML_second_header_1" style="height:40px;background-color: #e6e6e6;font-size:30px;">team1</th>
+  <th colspan=4 id="tableHTML_second_header_2" style="height:40px;background-color: #e6e6e6;font-size:30px;">team2</th>
+  <th colspan=5 id="tableHTML_second_header_3" style="height:40px;background-color: #e6e6e6;font-size:30px;">team3</th>
+</tr>
+<tr>
+  <th id="tableHTML_header_1" style="height:30px;background-color: #e6e6e6;"> </th>
+  <th id="tableHTML_header_2" style="height:30px;background-color: #e6e6e6;">mpg</th>
+  <th id="tableHTML_header_3" style="height:30px;background-color: #e6e6e6;">cyl</th>
+  <th id="tableHTML_header_4" style="height:30px;background-color: #e6e6e6;">disp</th>
+  <th id="tableHTML_header_5" style="height:30px;background-color: #e6e6e6;">hp</th>
+  <th id="tableHTML_header_6" style="height:30px;background-color: #e6e6e6;">drat</th>
+  <th id="tableHTML_header_7" style="height:30px;background-color: #e6e6e6;">wt</th>
+  <th id="tableHTML_header_8" style="height:30px;background-color: #e6e6e6;">qsec</th>
+  <th id="tableHTML_header_9" style="height:30px;background-color: #e6e6e6;">vs</th>
+  <th id="tableHTML_header_10" style="height:30px;background-color: #e6e6e6;">am</th>
+  <th id="tableHTML_header_11" style="height:30px;background-color: #e6e6e6;">gear</th>
+  <th id="tableHTML_header_12" style="height:30px;background-color: #e6e6e6;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td id="tableHTML_rownames">Mazda RX4</td>
+  <td id="tableHTML_column_1">21</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">160</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.9</td>
+  <td id="tableHTML_column_6">2.62</td>
+  <td id="tableHTML_column_7">16.46</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">4</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Mazda RX4 Wag</td>
+  <td id="tableHTML_column_1">21</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">160</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.9</td>
+  <td id="tableHTML_column_6">2.875</td>
+  <td id="tableHTML_column_7">17.02</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">4</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Datsun 710</td>
+  <td id="tableHTML_column_1">22.8</td>
+  <td id="tableHTML_column_2">4</td>
+  <td id="tableHTML_column_3">108</td>
+  <td id="tableHTML_column_4">93</td>
+  <td id="tableHTML_column_5">3.85</td>
+  <td id="tableHTML_column_6">2.32</td>
+  <td id="tableHTML_column_7">18.61</td>
+  <td id="tableHTML_column_8">1</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">1</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Hornet 4 Drive</td>
+  <td id="tableHTML_column_1">21.4</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">258</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.08</td>
+  <td id="tableHTML_column_6">3.215</td>
+  <td id="tableHTML_column_7">19.44</td>
+  <td id="tableHTML_column_8">1</td>
+  <td id="tableHTML_column_9">0</td>
+  <td id="tableHTML_column_10">3</td>
+  <td id="tableHTML_column_11">1</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Hornet Sportabout</td>
+  <td id="tableHTML_column_1">18.7</td>
+  <td id="tableHTML_column_2">8</td>
+  <td id="tableHTML_column_3">360</td>
+  <td id="tableHTML_column_4">175</td>
+  <td id="tableHTML_column_5">3.15</td>
+  <td id="tableHTML_column_6">3.44</td>
+  <td id="tableHTML_column_7">17.02</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">0</td>
+  <td id="tableHTML_column_10">3</td>
+  <td id="tableHTML_column_11">2</td>
+</tr>
+</tbody>
+</table><!--/html_preserve-->
+
+## Example of how some of the add_css_* <br> functions can be used
+
+
+```r
+mtcars[1:15, ] %>%
+  tableHTML(widths = c(140, rep(45, 11)),
+            second_headers = list(c(3, 4, 5), 
+                                  c('team1', 'team2', 'team3')),
+            caption = 'Table of Cars',
+            footer = 'Figure 1. Stats for famous cars') %>% 
+  add_css_second_header(css = list(c('height', 'background-color', 'font-size'), 
+                                   c('40px', ' #e6e6e6', '30px')),
+                        second_headers = 1:3) %>%
+  add_css_header(css = list(c('height', 'background-color'), 
+                            c('30px', ' #e6e6e6')),
+                 headers = 1:12) %>%
+  add_css_row(css = list('background-color', '#f2f2f2'),
+              rows = even(1:17)) %>%
+  add_css_row(css = list('background-color', '#e6f0ff'),
+              rows = odd(1:17))
+```
+
+## Example of how some of the add_css_* <br> functions can be used
+
+<!--html_preserve-->
+<table style="border-collapse:collapse;" class=table_8909 border=1>
+<caption>Table of Cars</caption>
+<caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
+<col width="140">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<thead>
+<tr style="background-color:#e6f0ff;">
+  <th colspan=3 id="tableHTML_second_header_1" style="height:40px;background-color: #e6e6e6;font-size:30px;">team1</th>
+  <th colspan=4 id="tableHTML_second_header_2" style="height:40px;background-color: #e6e6e6;font-size:30px;">team2</th>
+  <th colspan=5 id="tableHTML_second_header_3" style="height:40px;background-color: #e6e6e6;font-size:30px;">team3</th>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <th id="tableHTML_header_1" style="height:30px;background-color: #e6e6e6;"> </th>
+  <th id="tableHTML_header_2" style="height:30px;background-color: #e6e6e6;">mpg</th>
+  <th id="tableHTML_header_3" style="height:30px;background-color: #e6e6e6;">cyl</th>
+  <th id="tableHTML_header_4" style="height:30px;background-color: #e6e6e6;">disp</th>
+  <th id="tableHTML_header_5" style="height:30px;background-color: #e6e6e6;">hp</th>
+  <th id="tableHTML_header_6" style="height:30px;background-color: #e6e6e6;">drat</th>
+  <th id="tableHTML_header_7" style="height:30px;background-color: #e6e6e6;">wt</th>
+  <th id="tableHTML_header_8" style="height:30px;background-color: #e6e6e6;">qsec</th>
+  <th id="tableHTML_header_9" style="height:30px;background-color: #e6e6e6;">vs</th>
+  <th id="tableHTML_header_10" style="height:30px;background-color: #e6e6e6;">am</th>
+  <th id="tableHTML_header_11" style="height:30px;background-color: #e6e6e6;">gear</th>
+  <th id="tableHTML_header_12" style="height:30px;background-color: #e6e6e6;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#e6f0ff;">
+  <td id="tableHTML_rownames">Mazda RX4</td>
+  <td id="tableHTML_column_1">21</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">160</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.9</td>
+  <td id="tableHTML_column_6">2.62</td>
+  <td id="tableHTML_column_7">16.46</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">4</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">Mazda RX4 Wag</td>
+  <td id="tableHTML_column_1">21</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">160</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.9</td>
+  <td id="tableHTML_column_6">2.875</td>
+  <td id="tableHTML_column_7">17.02</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">4</td>
+</tr>
+<tr style="background-color:#e6f0ff;">
+  <td id="tableHTML_rownames">Datsun 710</td>
+  <td id="tableHTML_column_1">22.8</td>
+  <td id="tableHTML_column_2">4</td>
+  <td id="tableHTML_column_3">108</td>
+  <td id="tableHTML_column_4">93</td>
+  <td id="tableHTML_column_5">3.85</td>
+  <td id="tableHTML_column_6">2.32</td>
+  <td id="tableHTML_column_7">18.61</td>
+  <td id="tableHTML_column_8">1</td>
+  <td id="tableHTML_column_9">1</td>
+  <td id="tableHTML_column_10">4</td>
+  <td id="tableHTML_column_11">1</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">Hornet 4 Drive</td>
+  <td id="tableHTML_column_1">21.4</td>
+  <td id="tableHTML_column_2">6</td>
+  <td id="tableHTML_column_3">258</td>
+  <td id="tableHTML_column_4">110</td>
+  <td id="tableHTML_column_5">3.08</td>
+  <td id="tableHTML_column_6">3.215</td>
+  <td id="tableHTML_column_7">19.44</td>
+  <td id="tableHTML_column_8">1</td>
+  <td id="tableHTML_column_9">0</td>
+  <td id="tableHTML_column_10">3</td>
+  <td id="tableHTML_column_11">1</td>
+</tr>
+<tr style="background-color:#e6f0ff;">
+  <td id="tableHTML_rownames">Hornet Sportabout</td>
+  <td id="tableHTML_column_1">18.7</td>
+  <td id="tableHTML_column_2">8</td>
+  <td id="tableHTML_column_3">360</td>
+  <td id="tableHTML_column_4">175</td>
+  <td id="tableHTML_column_5">3.15</td>
+  <td id="tableHTML_column_6">3.44</td>
+  <td id="tableHTML_column_7">17.02</td>
+  <td id="tableHTML_column_8">0</td>
+  <td id="tableHTML_column_9">0</td>
+  <td id="tableHTML_column_10">3</td>
+  <td id="tableHTML_column_11">2</td>
+</tr>
+</tbody>
+</table>NANANANANANANANANANA<!--/html_preserve-->
+
+## Example of how some of the add_css_* <br> functions can be used
+
+
+```r
+mtcars[1:15, ] %>%
+  tableHTML(widths = c(140, rep(45, 11)),
+            second_headers = list(c(3, 4, 5), 
+                                  c('team1', 'team2', 'team3')),
+            caption = 'Table of Cars',
+            footer = 'Figure 1. Stats for famous cars') %>% 
+  add_css_second_header(css = list(c('height', 'background-color', 'font-size'), 
+                                   c('40px', ' #e6e6e6', '30px')),
+                        second_headers = 1:3) %>%
+  add_css_header(css = list(c('height', 'background-color'), 
+                            c('30px', ' #e6e6e6')),
+                 headers = 1:12) %>%
+  add_css_row(css = list('background-color', '#f2f2f2'),
+              rows = even(1:17)) %>%
+  add_css_row(css = list('background-color', '#e6f0ff'),
+              rows = odd(1:17)) %>%
+  add_css_column(css = list('text-align', 'center'), 
+                 columns = names(mtcars)) 
+```
+
+## Example of how some of the add_css_* <br> functions can be used
+
+<!--html_preserve-->
+<table style="border-collapse:collapse;" class=table_1257 border=1>
+<caption>Table of Cars</caption>
+<caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
+<col width="140">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<col width="45">
+<thead>
+<tr style="background-color:#e6f0ff;">
+  <th colspan=3 id="tableHTML_second_header_1" style="height:40px;background-color: #e6e6e6;font-size:30px;">team1</th>
+  <th colspan=4 id="tableHTML_second_header_2" style="height:40px;background-color: #e6e6e6;font-size:30px;">team2</th>
+  <th colspan=5 id="tableHTML_second_header_3" style="height:40px;background-color: #e6e6e6;font-size:30px;">team3</th>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <th id="tableHTML_header_1" style="height:30px;background-color: #e6e6e6;"> </th>
+  <th id="tableHTML_header_2" style="height:30px;background-color: #e6e6e6;">mpg</th>
+  <th id="tableHTML_header_3" style="height:30px;background-color: #e6e6e6;">cyl</th>
+  <th id="tableHTML_header_4" style="height:30px;background-color: #e6e6e6;">disp</th>
+  <th id="tableHTML_header_5" style="height:30px;background-color: #e6e6e6;">hp</th>
+  <th id="tableHTML_header_6" style="height:30px;background-color: #e6e6e6;">drat</th>
+  <th id="tableHTML_header_7" style="height:30px;background-color: #e6e6e6;">wt</th>
+  <th id="tableHTML_header_8" style="height:30px;background-color: #e6e6e6;">qsec</th>
+  <th id="tableHTML_header_9" style="height:30px;background-color: #e6e6e6;">vs</th>
+  <th id="tableHTML_header_10" style="height:30px;background-color: #e6e6e6;">am</th>
+  <th id="tableHTML_header_11" style="height:30px;background-color: #e6e6e6;">gear</th>
+  <th id="tableHTML_header_12" style="height:30px;background-color: #e6e6e6;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#e6f0ff;">
+  <td id="tableHTML_rownames">Mazda RX4</td>
+  <td id="tableHTML_column_1" style="text-align:center;">21</td>
+  <td id="tableHTML_column_2" style="text-align:center;">6</td>
+  <td id="tableHTML_column_3" style="text-align:center;">160</td>
+  <td id="tableHTML_column_4" style="text-align:center;">110</td>
+  <td id="tableHTML_column_5" style="text-align:center;">3.9</td>
+  <td id="tableHTML_column_6" style="text-align:center;">2.62</td>
+  <td id="tableHTML_column_7" style="text-align:center;">16.46</td>
+  <td id="tableHTML_column_8" style="text-align:center;">0</td>
+  <td id="tableHTML_column_9" style="text-align:center;">1</td>
+  <td id="tableHTML_column_10" style="text-align:center;">4</td>
+  <td id="tableHTML_column_11" style="text-align:center;">4</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">Mazda RX4 Wag</td>
+  <td id="tableHTML_column_1" style="text-align:center;">21</td>
+  <td id="tableHTML_column_2" style="text-align:center;">6</td>
+  <td id="tableHTML_column_3" style="text-align:center;">160</td>
+  <td id="tableHTML_column_4" style="text-align:center;">110</td>
+  <td id="tableHTML_column_5" style="text-align:center;">3.9</td>
+  <td id="tableHTML_column_6" style="text-align:center;">2.875</td>
+  <td id="tableHTML_column_7" style="text-align:center;">17.02</td>
+  <td id="tableHTML_column_8" style="text-align:center;">0</td>
+  <td id="tableHTML_column_9" style="text-align:center;">1</td>
+  <td id="tableHTML_column_10" style="text-align:center;">4</td>
+  <td id="tableHTML_column_11" style="text-align:center;">4</td>
+</tr>
+<tr style="background-color:#e6f0ff;">
+  <td id="tableHTML_rownames">Datsun 710</td>
+  <td id="tableHTML_column_1" style="text-align:center;">22.8</td>
+  <td id="tableHTML_column_2" style="text-align:center;">4</td>
+  <td id="tableHTML_column_3" style="text-align:center;">108</td>
+  <td id="tableHTML_column_4" style="text-align:center;">93</td>
+  <td id="tableHTML_column_5" style="text-align:center;">3.85</td>
+  <td id="tableHTML_column_6" style="text-align:center;">2.32</td>
+  <td id="tableHTML_column_7" style="text-align:center;">18.61</td>
+  <td id="tableHTML_column_8" style="text-align:center;">1</td>
+  <td id="tableHTML_column_9" style="text-align:center;">1</td>
+  <td id="tableHTML_column_10" style="text-align:center;">4</td>
+  <td id="tableHTML_column_11" style="text-align:center;">1</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">Hornet 4 Drive</td>
+  <td id="tableHTML_column_1" style="text-align:center;">21.4</td>
+  <td id="tableHTML_column_2" style="text-align:center;">6</td>
+  <td id="tableHTML_column_3" style="text-align:center;">258</td>
+  <td id="tableHTML_column_4" style="text-align:center;">110</td>
+  <td id="tableHTML_column_5" style="text-align:center;">3.08</td>
+  <td id="tableHTML_column_6" style="text-align:center;">3.215</td>
+  <td id="tableHTML_column_7" style="text-align:center;">19.44</td>
+  <td id="tableHTML_column_8" style="text-align:center;">1</td>
+  <td id="tableHTML_column_9" style="text-align:center;">0</td>
+  <td id="tableHTML_column_10" style="text-align:center;">3</td>
+  <td id="tableHTML_column_11" style="text-align:center;">1</td>
+</tr>
+<tr style="background-color:#e6f0ff;">
+  <td id="tableHTML_rownames">Hornet Sportabout</td>
+  <td id="tableHTML_column_1" style="text-align:center;">18.7</td>
+  <td id="tableHTML_column_2" style="text-align:center;">8</td>
+  <td id="tableHTML_column_3" style="text-align:center;">360</td>
+  <td id="tableHTML_column_4" style="text-align:center;">175</td>
+  <td id="tableHTML_column_5" style="text-align:center;">3.15</td>
+  <td id="tableHTML_column_6" style="text-align:center;">3.44</td>
+  <td id="tableHTML_column_7" style="text-align:center;">17.02</td>
+  <td id="tableHTML_column_8" style="text-align:center;">0</td>
+  <td id="tableHTML_column_9" style="text-align:center;">0</td>
+  <td id="tableHTML_column_10" style="text-align:center;">3</td>
+  <td id="tableHTML_column_11" style="text-align:center;">2</td>
+</tr>
+</tbody>
+</table><!--/html_preserve-->
 
 ## Example of how some of the add_css_* <br> functions can be used
 
@@ -589,7 +1160,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3223 border=1>
+<table style="border-collapse:collapse;" class=table_4902 border=1>
 <caption style="text-align:center;font-size:20px;color:black;">Table of Cars</caption>
 <caption id="footer" align="bottom" style="text-align:left;color:black;">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -726,7 +1297,7 @@ mtcars %>%
 ## Conditional formatting
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3785 border=1>
+<table style="border-collapse:collapse;" class=table_1315 border=1>
 <col width="140">
 <col width="45">
 <col width="45">
@@ -1268,11 +1839,22 @@ knitr::include_graphics('img/conf_matrix.png')
 - Use d3 to create HTML tables?
 - Export images from `tableHTML`
 
+## Credits
+
+<br>
+<br>
+<br>
+<br>
+
+### Special thanks to Dana Jomar for designing this awesome logo!
+
 ## Last Slide
 
 <h3>Questions?</h3>
 
-<br>
+
+
+
 <br>
 If you need help using the package, there is a `tableHTML` tag on stackoverflow:
 
