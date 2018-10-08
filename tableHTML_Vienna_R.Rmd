@@ -621,8 +621,6 @@ knitr::include_graphics('img/conf_matrix.png')
 <h3>Questions?</h3>
 
 
-
-
 <br>
 If you need help using the package, there is a `tableHTML` tag on stackoverflow:
 

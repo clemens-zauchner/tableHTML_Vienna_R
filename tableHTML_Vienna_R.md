@@ -185,7 +185,7 @@ mtcars %>%
 ```
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3439 border=1>
+<table style="border-collapse:collapse;" class=table_3430 border=1>
 <col width="140">
 <col width="50">
 <col width="50">
@@ -313,7 +313,7 @@ mtcars %>%
 ## Example 
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_8791 border=1>
+<table style="border-collapse:collapse;" class=table_9759 border=1>
 <caption>This is a caption</caption>
 <caption id="footer" align="bottom">This is a footer</caption>
 <col width="120">
@@ -568,7 +568,7 @@ mtcars %>%
 ```
 
 ```
-##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_6845 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
+##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_9159 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
 ##  - attr(*, "html")= logi TRUE
 ##  - attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
 ##  - attr(*, "nrows")= int 32
@@ -616,7 +616,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_8543 border=1>
+<table style="border-collapse:collapse;" class=table_9386 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -747,7 +747,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_6176 border=1>
+<table style="border-collapse:collapse;" class=table_4514 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -882,7 +882,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_8909 border=1>
+<table style="border-collapse:collapse;" class=table_8340 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1019,7 +1019,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1257 border=1>
+<table style="border-collapse:collapse;" class=table_9954 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1160,7 +1160,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4902 border=1>
+<table style="border-collapse:collapse;" class=table_1409 border=1>
 <caption style="text-align:center;font-size:20px;color:black;">Table of Cars</caption>
 <caption id="footer" align="bottom" style="text-align:left;color:black;">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1297,7 +1297,7 @@ mtcars %>%
 ## Conditional formatting
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1315 border=1>
+<table style="border-collapse:collapse;" class=table_4844 border=1>
 <col width="140">
 <col width="45">
 <col width="45">
@@ -1851,8 +1851,6 @@ knitr::include_graphics('img/conf_matrix.png')
 ## Last Slide
 
 <h3>Questions?</h3>
-
-
 
 
 <br>
