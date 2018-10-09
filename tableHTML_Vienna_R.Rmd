@@ -69,7 +69,7 @@ slides > slide:not(.nobackground):before {
   width: 200px; height: 88px; /* modify width and height (twice) */
   background-size: 200px 88px;
   position: absolute; left: auto;
-  right: 10px;  /* modify position */
+  right: -30px;  /* modify position */
   top: 10px;
 }
 
