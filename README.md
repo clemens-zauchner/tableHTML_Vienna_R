@@ -17,12 +17,29 @@ This repo contains the slides for the introduction to tableHTML at the [Vienna<-
 You can download and view the presentation in your browser by using the code below:
 
 ```
-#create a temp file
-temp_file_location <- tempfile('presentation_r', fileext = '.html')
+# Create temp directory
+temp_dir <- tempdir()
 
-#download the r presentation
+# Add img folder
+# img_dir <- file.path(temp_dir, "img")
+
+# dir.create(img_dir)
+
+#create a temp file for the html
+temp_file_location <- tempfile('presentation_r', tmpdir = temp_dir, fileext = '.html')
+
+# create a temp file for the logo
+temp_img_location <- file.path(temp_dir, "img/tableHTML.png")
+file.create(temp_img_location)
+
+
+#download the r presentation and logo
 download.file('https://raw.githubusercontent.com/clemens-zauchner/tableHTML_Vienna_R/master/tableHTML_Vienna_R.html',
               temp_file_location)
+
+download.file('https://raw.githubusercontent.com/clemens-zauchner/tableHTML_Vienna_R/master/img/tableHTML.png',
+              file.path(temp_dir, "img/tableHTML.png"))
+
 
 #view it on browser
 browseURL(temp_file_location)
