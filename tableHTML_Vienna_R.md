@@ -192,7 +192,7 @@ mtcars %>%
 ```
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1830 border=1>
+<table style="border-collapse:collapse;" class=table_6736 border=1>
 <col width="140">
 <col width="50">
 <col width="50">
@@ -320,7 +320,7 @@ mtcars %>%
 ## Example 
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3734 border=1>
+<table style="border-collapse:collapse;" class=table_3092 border=1>
 <caption>This is a caption</caption>
 <caption id="footer" align="bottom">This is a footer</caption>
 <col width="120">
@@ -575,7 +575,7 @@ mtcars %>%
 ```
 
 ```
-##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_2021 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
+##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_5451 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
 ##  - attr(*, "html")= logi TRUE
 ##  - attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
 ##  - attr(*, "nrows")= int 32
@@ -623,7 +623,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_7749 border=1>
+<table style="border-collapse:collapse;" class=table_1970 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -754,7 +754,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_2982 border=1>
+<table style="border-collapse:collapse;" class=table_8103 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -889,7 +889,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_2868 border=1>
+<table style="border-collapse:collapse;" class=table_7200 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1026,7 +1026,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_9453 border=1>
+<table style="border-collapse:collapse;" class=table_6750 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1167,7 +1167,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1728 border=1>
+<table style="border-collapse:collapse;" class=table_6894 border=1>
 <caption style="text-align:center;font-size:20px;color:black;">Table of Cars</caption>
 <caption id="footer" align="bottom" style="text-align:left;color:black;">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1304,7 +1304,7 @@ mtcars %>%
 ## Conditional formatting
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_9161 border=1>
+<table style="border-collapse:collapse;" class=table_8428 border=1>
 <col width="140">
 <col width="45">
 <col width="45">
