@@ -20,17 +20,13 @@ You can download and view the presentation in your browser by using the code bel
 # Create temp directory
 temp_dir <- tempdir()
 
-# Add img folder
-# img_dir <- file.path(temp_dir, "img")
-
-# dir.create(img_dir)
-
 #create a temp file for the html
 temp_file_location <- tempfile('presentation_r', tmpdir = temp_dir, fileext = '.html')
 
 # create a temp file for the logo
-temp_img_location <- file.path(temp_dir, "img/tableHTML.png")
-file.create(temp_img_location)
+temp_img_dir <- file.path(temp_dir, "img")
+dir.create(temp_img_dir)
+temp_img_location <- file.path(temp_img_dir, "tableHTML.png")
 
 
 #download the r presentation and logo
@@ -38,7 +34,7 @@ download.file('https://raw.githubusercontent.com/clemens-zauchner/tableHTML_Vien
               temp_file_location)
 
 download.file('https://raw.githubusercontent.com/clemens-zauchner/tableHTML_Vienna_R/master/img/tableHTML.png',
-              file.path(temp_dir, "img/tableHTML.png"))
+              temp_img_location)
 
 
 #view it on browser
