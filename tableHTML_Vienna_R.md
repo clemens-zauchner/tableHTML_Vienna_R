@@ -69,7 +69,7 @@ slides > slide:not(.nobackground):before {
   width: 200px; height: 88px; /* modify width and height (twice) */
   background-size: 200px 88px;
   position: absolute; left: auto;
-  right: -30px;  /* modify position */
+  right: 10px;  /* modify position */
   top: 10px;
 }
 
@@ -108,15 +108,22 @@ slides > slide:not(.nobackground):before {
 
 ## Contents
 
+<br><br>
+
+<div> </div> 
+<div style="float: left; width: 50%;"> 
 - Introduction to the authors
 - Motivation: Why develop the package?
 - What are HTML tables?
 - What is tableHTML?
 - Basic syntax & features of tableHTML
+</div> <div style="float: left; width: 50%;">
 - add_css_*() family of functions
+- tableHTML and shiny
 - Conditional formatting
 - Themes
 - confution matrix
+</div> 
 
 ## Introduction to the authors
 
@@ -185,7 +192,7 @@ mtcars %>%
 ```
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3430 border=1>
+<table style="border-collapse:collapse;" class=table_8092 border=1>
 <col width="140">
 <col width="50">
 <col width="50">
@@ -313,7 +320,7 @@ mtcars %>%
 ## Example 
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_9759 border=1>
+<table style="border-collapse:collapse;" class=table_7106 border=1>
 <caption>This is a caption</caption>
 <caption id="footer" align="bottom">This is a footer</caption>
 <col width="120">
@@ -568,7 +575,7 @@ mtcars %>%
 ```
 
 ```
-##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_9159 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
+##  'tableHTML' chr "\n<table style=\"border-collapse:collapse;\" class=table_2527 border=1>\n<col width=\"140\">\n<col width=\"50\""| __truncated__
 ##  - attr(*, "html")= logi TRUE
 ##  - attr(*, "headers")= chr [1:11] "mpg" "cyl" "disp" "hp" ...
 ##  - attr(*, "nrows")= int 32
@@ -616,7 +623,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_9386 border=1>
+<table style="border-collapse:collapse;" class=table_9598 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -730,7 +737,7 @@ mtcars[1:15, ] %>%
 
 
 ```r
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -747,7 +754,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4514 border=1>
+<table style="border-collapse:collapse;" class=table_8297 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -861,7 +868,7 @@ mtcars[1:15, ] %>%
 
 
 ```r
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -874,15 +881,15 @@ mtcars[1:15, ] %>%
                             c('30px', ' #e6e6e6')),
                  headers = 1:12) %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
-              rows = even(1:17)) %>%
+              rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17))
+              rows = odd(1:7))
 ```
 
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_8340 border=1>
+<table style="border-collapse:collapse;" class=table_6789 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -990,13 +997,13 @@ mtcars[1:15, ] %>%
   <td id="tableHTML_column_11">2</td>
 </tr>
 </tbody>
-</table>NANANANANANANANANANA<!--/html_preserve-->
+</table><!--/html_preserve-->
 
 ## Example of how some of the add_css_* <br> functions can be used
 
 
 ```r
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -1009,9 +1016,9 @@ mtcars[1:15, ] %>%
                             c('30px', ' #e6e6e6')),
                  headers = 1:12) %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
-              rows = even(1:17)) %>%
+              rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17)) %>%
+              rows = odd(1:7)) %>%
   add_css_column(css = list('text-align', 'center'), 
                  columns = names(mtcars)) 
 ```
@@ -1019,7 +1026,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_9954 border=1>
+<table style="border-collapse:collapse;" class=table_4002 border=1>
 <caption>Table of Cars</caption>
 <caption id="footer" align="bottom">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1133,7 +1140,7 @@ mtcars[1:15, ] %>%
 
 
 ```r
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -1146,9 +1153,9 @@ mtcars[1:15, ] %>%
                             c('30px', ' #e6e6e6')),
                  headers = 1:12) %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
-              rows = even(1:17)) %>%
+              rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17)) %>%
+              rows = odd(1:7)) %>%
   add_css_column(css = list('text-align', 'center'), 
                  columns = names(mtcars)) %>%
   add_css_caption(css = list(c('text-align', 'font-size', 'color'),
@@ -1160,7 +1167,7 @@ mtcars[1:15, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1409 border=1>
+<table style="border-collapse:collapse;" class=table_7256 border=1>
 <caption style="text-align:center;font-size:20px;color:black;">Table of Cars</caption>
 <caption id="footer" align="bottom" style="text-align:left;color:black;">Figure 1. Stats for famous cars</caption>
 <col width="140">
@@ -1297,7 +1304,7 @@ mtcars %>%
 ## Conditional formatting
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4844 border=1>
+<table style="border-collapse:collapse;" class=table_4092 border=1>
 <col width="140">
 <col width="45">
 <col width="45">
@@ -1800,6 +1807,33 @@ mtcars %>%
 </tr>
 </tbody>
 </table><!--/html_preserve-->
+
+## tableHTML and shiny
+
+
+```r
+shinyApp(
+ ui = fluidPage(
+   fluidRow(
+    #leave some spacing
+    br(),
+    column(width = 1),
+    sliderInput("nrow", label = "Select rows",
+                min = 1, max = 32, value = c(1, 5)),
+    tableHTML_output("mytable"))
+ ), 
+ server = function(input, output) {
+   
+  output$mytable <- render_tableHTML( 
+   tableHTML(mtcars[input$nrow[1]:input$nrow[2], ], theme = 'rshiny-blue')
+ )}
+)
+```
+
+
+##tableHTML and shiny
+
+<img src="img/shiny_example.png">
 
 
 ## Confusion Matrix

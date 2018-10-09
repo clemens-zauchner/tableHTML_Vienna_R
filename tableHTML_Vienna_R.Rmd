@@ -69,7 +69,7 @@ slides > slide:not(.nobackground):before {
   width: 200px; height: 88px; /* modify width and height (twice) */
   background-size: 200px 88px;
   position: absolute; left: auto;
-  right: -30px;  /* modify position */
+  right: 10px;  /* modify position */
   top: 10px;
 }
 
@@ -122,15 +122,22 @@ add_alpha <- function(col, alpha = 1){
 
 ## Contents
 
+<br><br>
+
+<div> </div> 
+<div style="float: left; width: 50%;"> 
 - Introduction to the authors
 - Motivation: Why develop the package?
 - What are HTML tables?
 - What is tableHTML?
 - Basic syntax & features of tableHTML
+</div> <div style="float: left; width: 50%;">
 - add_css_*() family of functions
+- tableHTML and shiny
 - Conditional formatting
 - Themes
 - confution matrix
+</div> 
 
 ## Introduction to the authors
 
@@ -294,7 +301,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 ```{r header_code, eval = FALSE}
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -328,7 +335,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 ```{r css_row_code, eval = FALSE}
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -341,9 +348,9 @@ mtcars[1:15, ] %>%
                             c('30px', ' #e6e6e6')),
                  headers = 1:12) %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
-              rows = even(1:17)) %>%
+              rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17))
+              rows = odd(1:7))
 ```
 
 ## Example of how some of the add_css_* <br> functions can be used
@@ -364,13 +371,13 @@ mtcars[1:5, ] %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
               rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17))
+              rows = odd(1:7))
 ```
 
 ## Example of how some of the add_css_* <br> functions can be used
 
 ```{r css_column_code, eval = FALSE}
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -383,9 +390,9 @@ mtcars[1:15, ] %>%
                             c('30px', ' #e6e6e6')),
                  headers = 1:12) %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
-              rows = even(1:17)) %>%
+              rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17)) %>%
+              rows = odd(1:7)) %>%
   add_css_column(css = list('text-align', 'center'), 
                  columns = names(mtcars)) 
 ```
@@ -416,7 +423,7 @@ mtcars[1:5, ] %>%
 ## Example of how some of the add_css_* <br> functions can be used
 
 ```{r css_example_code, eval = FALSE}
-mtcars[1:15, ] %>%
+mtcars[1:5, ] %>%
   tableHTML(widths = c(140, rep(45, 11)),
             second_headers = list(c(3, 4, 5), 
                                   c('team1', 'team2', 'team3')),
@@ -429,9 +436,9 @@ mtcars[1:15, ] %>%
                             c('30px', ' #e6e6e6')),
                  headers = 1:12) %>%
   add_css_row(css = list('background-color', '#f2f2f2'),
-              rows = even(1:17)) %>%
+              rows = even(1:7)) %>%
   add_css_row(css = list('background-color', '#e6f0ff'),
-              rows = odd(1:17)) %>%
+              rows = odd(1:7)) %>%
   add_css_column(css = list('text-align', 'center'), 
                  columns = names(mtcars)) %>%
   add_css_caption(css = list(c('text-align', 'font-size', 'color'),
@@ -542,6 +549,32 @@ mtcars %>%
   tableHTML(widths = c(140, rep(45, 11)),
             theme = "rshiny-blue")
 ```
+
+## tableHTML and shiny
+
+```{r shiny_code, eval = FALSE}
+shinyApp(
+ ui = fluidPage(
+   fluidRow(
+    #leave some spacing
+    br(),
+    column(width = 1),
+    sliderInput("nrow", label = "Select rows",
+                min = 1, max = 32, value = c(1, 5)),
+    tableHTML_output("mytable"))
+ ), 
+ server = function(input, output) {
+   
+  output$mytable <- render_tableHTML( 
+   tableHTML(mtcars[input$nrow[1]:input$nrow[2], ], theme = 'rshiny-blue')
+ )}
+)
+```
+
+
+##tableHTML and shiny
+
+<img src="img/shiny_example.png">
 
 
 ## Confusion Matrix
